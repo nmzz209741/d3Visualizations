@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>D3 Test</title>
+        <script type="text/javascript" src="./d3/d3.v3.js"></script>
+        <style type="text/css">
+            div.bar {
+                display: inline-block;
+                width: 20px;
+                height: 75px;
+                background-color: teal;
+                margin-right: 2px; 
+            }
+        </style>
+    </head>
+    <body>
+        <div class="d1"></div>
+        <div class="d2"></div>
+        <script type="text/javascript">
+            /* Step 1: Rendering text */
+            // d3.select("body").append("p").text("New paragraph!");
+
+            /*Step 2: Rendering text for each value in dataset*/
+            var dataset =[ 5, 10, 15, 20, 25 ];
+            // d3.select("body")
+            //     .selectAll("p")
+            //     .data(dataset)
+            //     .enter()
+            //     .append("p")
+            //     .text("data is here!");
+
+            /*Step 3: Rendering data*/
+            // d3.select("body")
+            //     .selectAll("p")
+            //     .data(dataset)
+            //     .enter()
+            //     .append("p")
+            //     .text(function(d){return d;});
+
+            /*Step 4 : Styles */
+            // d3.select("body")
+            //     .selectAll("p")
+            //     .data(dataset)
+            //     .enter()
+            //     .append("p")
+            //     .text(function(d){return d;})
+            //     .style("color", function(d){
+            //        if (d<15){
+            //             return 'red';
+            //        }else{
+            //             return 'yellow';
+            //        }
+            //     });
+            
+            /*Step 5: Rendering Divs*/
+            d3.select(".d1")
+                .selectAll("div")
+                .data(dataset)
+                .enter()
+                .append("div")
+                .attr("class","bar")
+                .style("height",function(d){
+                    return (d * 5) + "px";
+                });
+            var dataset2 = []
+            for (var i=0; i<25;i++){
+                var newNum = Math.round(Math.random() * 30);
+                dataset2.push(newNum);
+            }
+            d3.select(".d2")
+                .selectAll("div")
+                .data(dataset2)
+                .enter()
+                .append("div")
+                .attr("class","bar")
+                .style("height",function(d){
+                    return (d * 5) + "px";
+                })
+                .style("background-color", function(d){
+                   return 
+                });
+        </script>
+    </body>
+</html> 
